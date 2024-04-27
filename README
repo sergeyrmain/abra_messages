@@ -57,4 +57,4 @@ The API uses standard HTTP response codes to indicate success or failure of an A
 500 Internal Server Error - An error occurred on the server.
 
 Created by: Sergey Artemieve
-The api is runing on an aws ec2 machine
+The api is running on an aws ec2 machine

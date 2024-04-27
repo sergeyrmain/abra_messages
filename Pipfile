@@ -8,6 +8,8 @@ django = "*"
 status = "*"
 djangorestframework = "*"
 dj-config-url = "*"
+decouple = "*"
+config = "*"
 
 [dev-packages]
 

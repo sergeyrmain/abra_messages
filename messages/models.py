@@ -2,7 +2,7 @@ from django.db import models
 from django.contrib.auth.models import User
 
 from messages.enums.status import Status
-from messages.not_deleted_manager import NotDeletedManager, NonDeletableModel
+from .not_deleted_manager import NotDeletedManager, NonDeletableModel
 
 
 class Message(NotDeletedManager):

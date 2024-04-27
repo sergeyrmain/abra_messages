@@ -69,4 +69,4 @@ def register(request):
 
     user = User.objects.create_user(username=username, password=password)
     user_id = user.id
-    return Response({'message': f'Registration successful.ID: {user_id}'}, status=status.HTTP_201_CREATED)
+    return Response({'message': f'Registration successful. USER_ID: {user_id}'}, status=status.HTTP_201_CREATED)

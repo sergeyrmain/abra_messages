@@ -5,7 +5,7 @@ from .models import Message
 class MessageSerializer(serializers.ModelSerializer):
     class Meta:
         model = Message
-        fields = '__all__'
+        fields = ['id', 'sender', 'receiver', 'subject', 'message', 'creation_date', 'is_read']
         read_only_fields = ['sender']
 
     def create(self, validated_data):

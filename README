@@ -1,0 +1,60 @@
+Message API Service
+
+This REST API is for messaging between users, securely hosted on AWS.
+It provides authenticated endpoints for creating, retrieving, updating,
+and deleting messages, ensuring that users can only interact with messages associated with their accounts.
+
+Features:
+Send messages with a subject and content.
+Retrieve all messages for a user.
+Filter to retrieve only unread messages.
+Read a specific message, which marks it as read.
+Delete messages where the user is either the sender or the receiver.
+
+Authentication
+The API uses Basic Authentication. Every request must include the user's username and password encoded in the HTTP header.
+
+user can be created using the : /register/ endpoint.
+with the body:
+{
+    "username": "user_name",
+    "password": "password"
+}
+
+API Endpoints
+Write a Message
+POST: /messages/
+body:
+{
+  "receiver": 2,
+  "subject": "SUBJECT",
+  "message": "MESSAGE"
+}
+
+Get All Messages
+GET: /messages/
+will return all messages
+
+Get Unread Messages
+GET /messages/?unread=true
+will return only unread messages
+
+Read Specific Message
+GET /messages/{id}/
+will return the message with the given id
+
+DELETE /messages/{id}/
+will delete the message with the given id.
+only the sender or the receiver can delete the message.
+The message will be 'soft deleted' for any reason to not lose data.+
+
+Errors
+The API uses standard HTTP response codes to indicate success or failure of an API request:
+200 OK - The request was successful.
+201 Created - The request was successful and a new resource was created.
+401 Unauthorized - Authentication failed.
+404 Not Found - The requested resource was not found.
+500 Internal Server Error - An error occurred on the server.
+
+Created by: Sergey Artemieve
+The api is runing on an aws ec2 machine

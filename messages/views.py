@@ -67,5 +67,6 @@ def register(request):
     if User.objects.filter(username=username).exists():
         return Response({'error': 'This username is already taken.'}, status=status.HTTP_400_BAD_REQUEST)
 
-    User.objects.create_user(username=username, password=password)
-    return Response({'message': 'Registration successful.'}, status=status.HTTP_201_CREATED)
+    user = User.objects.create_user(username=username, password=password)
+    user_id = user.id
+    return Response({'message': f'Registration successful.ID: {user_id}'}, status=status.HTTP_201_CREATED)
